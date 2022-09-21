@@ -16,9 +16,16 @@ const colours = ['#4681f4', '#5783db', '#55c2da', '#5dbea3', '#5adbb5', '#a881af
 
 const button = document.querySelector("#quote-button");
 const box = document.querySelector("#quote");
+var lastIndex;
 button.addEventListener("click", (e) => {
     let selectedIndex = Math.floor(Math.random() * messages.length);
+    while (lastIndex === selectedIndex) {
+        selectedIndex = Math.floor(Math.random() * messages.length);
+    }
+    
     box.innerText = messages[selectedIndex];
     let colourIndex = Math.floor(Math.random() * colours.length);
     button.style.backgroundColor = colours[colourIndex];
+
+    lastIndex = selectedIndex;
 });
