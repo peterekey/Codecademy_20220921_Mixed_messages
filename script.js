@@ -12,9 +12,13 @@ const messages = [
     "If the lord can lead you to it, he can lead you through it."
 ];
 
+const colours = ['#4681f4', '#5783db', '#55c2da', '#5dbea3', '#5adbb5', '#a881af', '#dd7973', '#ffbd03']
+
 const button = document.querySelector("#quote-button");
 const box = document.querySelector("#quote");
 button.addEventListener("click", (e) => {
     let selectedIndex = Math.floor(Math.random() * messages.length);
     box.innerText = messages[selectedIndex];
+    let colourIndex = Math.floor(Math.random() * colours.length);
+    button.style.backgroundColor = colours[colourIndex];
 });
